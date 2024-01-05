@@ -79,7 +79,7 @@ if [ ! -d "$HOME/.cache/zsh" ]; then
 fi
 
 # History file configuration
-[ -z "$HISTFILE" ] && HISTFILE="$HOME/.cache/zsh/.zsh_history"
+export HISTFILE="$HOME/.cache/zsh/.zsh_history"
 
 # Compdump file configuration
 export ZSH_COMPDUMP="${ZDOTDIR:-$HOME}/.cache/zsh/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
