@@ -1,1 +1,1 @@
-/home/frenagon/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions-plugin/zsh-autosuggestions.plugin.zsh
+/Users/franciscoaceves/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions-plugin/zsh-autosuggestions.plugin.zsh
