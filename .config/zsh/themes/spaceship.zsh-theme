@@ -1,1 +1,1 @@
-/home/frenagon/.config/zsh/themes/spaceship-prompt/spaceship.zsh-theme
+/Users/franciscoaceves/.config/zsh/themes/spaceship-prompt/spaceship.zsh-theme
