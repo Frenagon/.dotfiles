@@ -128,6 +128,7 @@ alias domt="dog mergetool"
 
 # Configuration aliases
 alias hyprconfig="nvim ~/.config/hypr/hyprland.conf"
+alias wallconfig="nvim ~/.config/hypr/hyprpaper.conf"
 alias zshconfig="edit_cwd ~/.zshrc"
 alias ohmyzsh="edit_cwd ~/.oh-my-zsh"
 alias kittyconfig="edit_cwd ~/.config/kitty/kitty.conf"
