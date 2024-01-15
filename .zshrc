@@ -45,8 +45,33 @@ else
   export EDITOR='nvim'
 fi
 
+# dotfiles aliases
+alias dog="/usr/bin/git --git-dir='$HOME/.dotfiles/' --work-tree='$HOME'"
+alias dos="dog status"
+alias dol="dog log"
+alias dod="dog diff"
+alias dods="dog diff --staged"
+alias doc="dog checkout"
+alias dob="dog branch"
+alias dosw="dog switch"
+alias doswm="dog switch master"
+function doaa {
+  dog add $@
+  dog status
+  dog diff --staged
+}
+alias doa="doaa -u"
+alias docm="dog commit -m"
+alias dop="dog push"
+alias dopf="dog push --force"
+alias doll="dog pull"
+alias dor="dog reset"
+alias dora="dog reset HEAD ."
+alias dorh="dog reset --hard"
+alias dorb="dog rebase"
+alias dorbm="dog rebase master"
+
 # Configuration aliases
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
-alias config="/usr/bin/git --git-dir='$HOME/.dotfiles/' --work-tree='$HOME'"
 alias kittyconfig="nvim ~/.config/kitty/kitty.conf"
