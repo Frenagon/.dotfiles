@@ -42,6 +42,9 @@ source "$ZSH/oh-my-zsh.sh"
 
 # User configuration
 
+# pkg-config path configuration
+export PKG_CONFIG_PATH="/opt/homebrew/opt/jpeg/lib/pkgconfig"
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
 	export EDITOR='vim'
