@@ -51,6 +51,9 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
+# pkg-config path configuration
+export PKG_CONFIG_PATH="/opt/homebrew/opt/jpeg/lib/pkgconfig"
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
 	export EDITOR='vim'
