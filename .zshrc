@@ -48,7 +48,7 @@ fi
 # dotfiles aliases
 alias dog="/usr/bin/git --git-dir='$HOME/.dotfiles/' --work-tree='$HOME'"
 alias dos="dog status"
-alias dol="dog log"
+alias dolg="dog log"
 alias dod="dog diff"
 alias dods="dog diff --staged"
 alias doc="dog checkout"
@@ -72,6 +72,8 @@ alias dora="dog reset HEAD ."
 alias dorh="dog reset --hard"
 alias dorb="dog rebase"
 alias dorbm="dog rebase master"
+alias dorbc="dog rebase --continue"
+alias domt="dog mergetool"
 
 # Configuration aliases
 alias zshconfig="nvim ~/.zshrc"
