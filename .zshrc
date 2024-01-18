@@ -129,7 +129,7 @@ alias domt="dog mergetool"
 
 # Hyprland configuration
 alias hyprconfig="nvim ~/.config/hypr/hyprland.conf"
-alias wallconfig="nvim ~/.config/hypr/hyprpaper.conf"
+alias paperconfig="nvim ~/.config/hypr/hyprpaper.conf"
 alias ewwconfig="nvim ~/.config/eww"
 
 # Configuration aliases
