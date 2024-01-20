@@ -1,3 +1,6 @@
+# Add user scripts to PATH
+PATH="$HOME/bin:$PATH"
+
 # Path to the oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
