@@ -64,7 +64,7 @@ alias doswm="dog switch master"
 alias doswh="dog switch hyprland"
 alias doswmo="dog switch macOS"
 function doaa {
-  dog add $@
+  dog add "$@"
   dog status
   dog diff --staged
 }
