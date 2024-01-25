@@ -63,10 +63,11 @@ alias dosw="dog switch"
 alias doswm="dog switch master"
 alias doswh="dog switch hyprland"
 alias doswmo="dog switch macOS"
-function doaa {
-  dog add "$@"
-  dog status
-  dog diff --staged
+doaa() {
+  if dog add "$@"; then
+    dog status
+    dog diff --staged
+  fi
 }
 alias doa="doaa -u"
 alias docm="dog commit -m"
