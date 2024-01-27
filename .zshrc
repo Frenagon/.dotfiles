@@ -12,15 +12,15 @@ ZSH_CUSTOM=$HOME/.config/zsh
 
 # Figure out the SHORT hostname
 if [[ "$OSTYPE" = darwin* ]]; then
-  # macOS's $HOST changes with dhcp, etc. Use ComputerName if possible.
-  SHORT_HOST=$(scutil --get ComputerName 2>/dev/null) || SHORT_HOST="${HOST/.*/}"
+	# macOS's $HOST changes with dhcp, etc. Use ComputerName if possible.
+	SHORT_HOST=$(scutil --get ComputerName 2>/dev/null) || SHORT_HOST="${HOST/.*/}"
 else
-  SHORT_HOST="${HOST/.*/}"
+	SHORT_HOST="${HOST/.*/}"
 fi
 
 # Create a cache folder if it doesn't exists
 if [ ! -d "$HOME/.cache/zsh" ]; then
-    mkdir -p $HOME/.cache/zsh
+	mkdir -p $HOME/.cache/zsh
 fi
 
 # History file configuration
@@ -43,9 +43,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+	export EDITOR='vim'
 else
-  export EDITOR='nvim'
+	export EDITOR='nvim'
 fi
 
 # dotfiles aliases
@@ -64,10 +64,10 @@ alias doswm="dog switch master"
 alias doswh="dog switch hyprland"
 alias doswmo="dog switch macOS"
 doaa() {
-  if dog add "$@"; then
-    dog status
-    dog diff --staged
-  fi
+	if dog add "$@"; then
+		dog status
+		dog diff --staged
+	fi
 }
 alias doa="doaa -u"
 alias docm="dog commit -m"
