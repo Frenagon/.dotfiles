@@ -5,10 +5,10 @@ PATH="$HOME/.local/bin:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set the name of the theme.
-ZSH_THEME="spaceship"
+export ZSH_THEME="spaceship"
 
 # Folder for the custom configuration.
-ZSH_CUSTOM=$HOME/.config/zsh
+export ZSH_CUSTOM=$HOME/.config/zsh
 
 # Figure out the SHORT hostname
 if [[ "$OSTYPE" = darwin* ]]; then
@@ -20,7 +20,7 @@ fi
 
 # Create a cache folder if it doesn't exists
 if [ ! -d "$HOME/.cache/zsh" ]; then
-	mkdir -p $HOME/.cache/zsh
+	mkdir -p "$HOME/.cache/zsh"
 fi
 
 # History file configuration
@@ -30,14 +30,15 @@ export HISTFILE="$HOME/.cache/zsh/.zsh_history"
 export ZSH_COMPDUMP="${ZDOTDIR:-$HOME}/.cache/zsh/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 
 # Select the plugins to load
-plugins=(
+export plugins=(
 	git
 	history
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 )
 
-source $ZSH/oh-my-zsh.sh
+# shellcheck source=/dev/null
+source "$ZSH/oh-my-zsh.sh"
 
 # User configuration
 
@@ -49,7 +50,7 @@ else
 fi
 
 # dotfiles aliases
-alias dog="/usr/bin/git --git-dir='$HOME/.dotfiles/' --work-tree='$HOME'"
+alias dog='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias dos="dog status"
 alias dolg="dog log"
 alias dolo="dog log --oneline"
