@@ -1,0 +1,13 @@
+#!/bin/bash
+# Switch between keyboard layouts
+# Arguments:
+#   next - (default) moves to the next layout
+#   prev - moves to the previous layout
+readonly KEYBOARD="keychron-keychron-k10"
+notify_id="$(jq -r '.change_kb_layout' "$HOME/.local/bin/data/notify_ids.json")"
+
+hyprctl switchxkblayout "$KEYBOARD" "${1:-next}"
+
+kb_layout=$(hyprctl devices -j |
+	jq -r '.keyboards[] | select(.name == "'$KEYBOARD'") | .active_keymap')
+notify-send -t 2000 -e -r "$notify_id" "Keyboard Layout" "$kb_layout"
