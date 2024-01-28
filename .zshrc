@@ -128,9 +128,9 @@ alias dorbc="dog rebase --continue"
 alias domt="dog mergetool"
 
 # Hyprland configuration
-alias hyprconfig="nvim ~/.config/hypr/hyprland.conf"
-alias paperconfig="nvim ~/.config/hypr/hyprpaper.conf"
-alias ewwconfig="nvim ~/.config/eww"
+alias hyprconfig="edit_cwd ~/.config/hypr/hyprland.conf"
+alias paperconfig="edit_cwd ~/.config/hypr/hyprpaper.conf"
+alias ewwconfig="edit_cwd ~/.config/eww"
 
 # Configuration aliases
 alias zshconfig="edit_cwd ~/.zshrc"
