@@ -49,6 +49,31 @@ else
 	export EDITOR='nvim'
 fi
 
+# Error handling
+err() {
+  echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $*" >&2
+}
+
+# Navigation
+##################################################
+# If argument is a directory; 'cd' to it
+# If argument is a file; 'cd' to parent directory
+# Arguments:
+#   directory or file to 'cd' into
+# Returns:
+#   0 if 'cd' was succesful, 1 on error
+##################################################
+cdf() {
+  if [[ -f "$1" ]]; then
+    cd "$(dirname "$1")" || return 1
+  elif [[ -d "$1" ]]; then
+    cd "$1" || return 1
+  else
+    err "Invalid: argument not a file or directory"
+    return 1
+  fi
+}
+
 # dotfiles aliases
 alias dog='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias dos="dog status"
