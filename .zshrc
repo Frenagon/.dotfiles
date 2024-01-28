@@ -74,6 +74,24 @@ cdf() {
   fi
 }
 
+##################################################
+# Opens $EDITOR with the working directory set on
+# the target directory or file parent directory
+# Arguments:
+#   directory or file to edit
+##################################################
+edit_cwd() {
+  local current_dir="$PWD"
+  if [[ -f "$1" ]]; then
+    cd "$(dirname "$1")" || return 1
+    $EDITOR "$(basename "$1")"
+  elif [[ -d "$1" ]]; then
+    cd "$1" || return 1
+    $EDITOR .
+  fi
+  cd "$current_dir" || return 1
+}
+
 # dotfiles aliases
 alias dog='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias dos="dog status"
@@ -109,8 +127,8 @@ alias dorbc="dog rebase --continue"
 alias domt="dog mergetool"
 
 # Configuration aliases
-alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
-alias kittyconfig="nvim ~/.config/kitty/kitty.conf"
-alias nvimconfig="nvim ~/.config/nvim"
-alias binedit="nvim ~/.local/bin"
+alias zshconfig="edit_cwd ~/.zshrc"
+alias ohmyzsh="edit_cwd ~/.oh-my-zsh"
+alias kittyconfig="edit_cwd ~/.config/kitty/kitty.conf"
+alias nvimconfig="edit_cwd ~/.config/nvim"
+alias binedit="edit_cwd ~/.local/bin"
