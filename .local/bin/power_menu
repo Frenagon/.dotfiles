@@ -20,7 +20,10 @@ command_menu=$(
 	echo "${menu[*]}"
 )
 selected=$(echo -e "$command_menu" |
-	~/.local/bin/run_or_close wofi -d -p 'Power Menu' -W 250 -H 270 -k /dev/null)
+	~/.local/bin/run_or_close wofi \
+		-c "$HOME/.local/bin/config/power_menu.conf" \
+		-s "$HOME/.local/bin/styles/power_menu.css" \
+		-k /dev/null)
 for i in "${!menu[@]}"; do
 	if [[ "$selected" == "${menu[i]}" ]]; then
 		${actions[i]}
