@@ -2,4 +2,6 @@ show=drun
 width=750
 height=400
 insensitive=true
-prompt= Hmm, what do you want to run?
+allow_images=true
+hide_scroll=true
+prompt=Hmm, what do you want to run?
