@@ -1,0 +1,28 @@
+#!/bin/bash
+# Shows the power menu
+
+# Menu options
+declare -a menu=(
+	"   Log Out"
+	"   Reboot"
+	"   Shutdown"
+)
+
+# Actions shuld be in the same index as it's menu option
+declare -a actions=(
+	"hyprctl dispatch exit"
+	"reboot"
+	"poweroff"
+)
+
+command_menu=$(
+	IFS=$'\n'
+	echo "${menu[*]}"
+)
+selected=$(echo -e "$command_menu" |
+	~/.local/bin/run_or_close wofi -d -p 'Power Menu' -W 250 -H 270 -k /dev/null)
+for i in "${!menu[@]}"; do
+	if [[ "$selected" == "${menu[i]}" ]]; then
+		${actions[i]}
+	fi
+done
