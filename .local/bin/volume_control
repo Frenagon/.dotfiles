@@ -1,0 +1,84 @@
+#!/bin/bash
+
+# You can call this script like this:
+# volumecontrol up
+# volumecontrol down
+# volumecontrol mute
+
+declare -r COMMAND="$1"
+declare -r SET_VOLUME="${2:-80}"
+notify_id="$(jq -r '.volume_control' "$HOME/.local/bin/data/notify_ids.json")"
+
+get_volume() {
+  declare volume_string
+  volume_string=$(amixer sget Master | grep "Left:")
+  declare volume_trimmed=${volume_string#* [}
+  echo "${volume_trimmed%\%*}"
+}
+
+is_mute() {
+  declare mute_state_string
+  mute_state_string=$(amixer sget Master | grep "Left:")
+  declare mute_state_trimmed=${mute_state_string#*\] \[}
+  [[ ${mute_state_trimmed%\]*} == "off" ]]
+}
+
+set_volume() {
+  amixer set Master on >/dev/null
+  amixer sset Master "$1" >/dev/null
+}
+
+notify_volume() {
+  if is_mute; then
+    notify-send \
+      -i "/usr/share/icons/Adwaita/symbolic/status/audio-volume-muted-symbolic.svg" \
+      -r "$notify_id" \
+      -u normal "Audio Muted"
+    return
+  fi
+
+  declare volume
+  volume="$(get_volume)"
+
+  if ((volume == 0)); then
+    icon_name="/usr/share/icons/Adwaita/symbolic/status/audio-volume-muted-symbolic.svg"
+  elif ((volume < 30)); then
+    icon_name="/usr/share/icons/Adwaita/symbolic/status/audio-volume-low-symbolic.svg"
+  elif ((volume < 70)); then
+    icon_name="/usr/share/icons/Adwaita/symbolic/status/audio-volume-medium-symbolic.svg"
+  else
+    icon_name="/usr/share/icons/Adwaita/symbolic/status/audio-volume-high-symbolic.svg"
+  fi
+
+  bar=$(seq -s "🮋" $((volume / 5)) | sed 's/[0-9]//g')
+  notify-send -i "$icon_name" -r "$notify_id" -u normal "$bar  $volume"
+  canberra-gtk-play -i audio-volume-change
+}
+
+case $COMMAND in
+up)
+  set_volume 2%+
+  notify_volume
+  ;;
+down)
+  set_volume 2%-
+  notify_volume
+  ;;
+set)
+  set_volume "$SET_VOLUME%"
+  notify_volume
+  ;;
+mute)
+  amixer set Master 1+ toggle >/dev/null
+  notify_volume
+  ;;
+*)
+  if is_mute; then
+    echo "M"
+  else
+    declare -i volume
+    volume="$(get_volume)"
+    echo "$volume%"
+  fi
+  ;;
+esac
