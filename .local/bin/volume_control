@@ -12,6 +12,7 @@
 #   Command that determines the action of the script:
 #     up    - Rises the volume by 2%
 #     down  - Lowers the volume by 2%
+#     set   - Sets the volume to the default volume (set on SET_VOLUME)
 #     set X - Sets the volume to the specified amount (second argument)
 #     mute  - Mutes the volume
 #     NONE  - Writes the current volume state (See Outputs)
