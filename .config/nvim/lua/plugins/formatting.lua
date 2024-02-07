@@ -9,4 +9,5 @@ return {
       },
     },
   },
+  { "gpanders/nvim-parinfer" },
 }
