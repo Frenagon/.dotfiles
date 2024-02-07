@@ -1,9 +1,25 @@
 #!/bin/bash
-
-# You can call this script like this:
-# volumecontrol up
-# volumecontrol down
-# volumecontrol mute
+# Let's you control the volume of your system and sends
+# a notification when used.
+#
+# Globals:
+#   This program needs a notifu_ids.json file on the
+#   '$HOME/.local/bin/data/' location with a unique integer
+#   value called 'volume_control' on it, this value is used
+#   to determine the notify-send id to be used by this script.
+#
+# Arguments:
+#   Command that determines the action of the script:
+#     up    - Rises the volume by 2%
+#     down  - Lowers the volume by 2%
+#     set X - Sets the volume to the specified amount (second argument)
+#     mute  - Mutes the volume
+#     NONE  - Writes the current volume state (See Outputs)
+#
+# Outputs:
+#   When no argument is received it writes the current volume
+#   state to STDOUT 'M' if muted or the current volume level
+#   if unmuted.
 
 declare -r COMMAND="$1"
 declare -r SET_VOLUME="${2:-80}"
