@@ -129,6 +129,7 @@ alias domt="dog mergetool"
 # Configuration aliases
 alias zshconfig="edit_cwd ~/.zshrc"
 alias ohmyzsh="edit_cwd ~/.oh-my-zsh"
+alias zshcustom="edit_cwd ~/.config/zsh"
 alias kittyconfig="edit_cwd ~/.config/kitty/kitty.conf"
 alias nvimconfig="edit_cwd ~/.config/nvim"
 alias binedit="edit_cwd ~/.local/bin"
