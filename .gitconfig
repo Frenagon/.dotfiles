@@ -1,5 +1,7 @@
 [user]
 	email = frenagon@gmail.com
 	name = Francisco Aceves
+[init]
+	defaultBranch = main
 [alias]
 	undo = reset --soft HEAD^
