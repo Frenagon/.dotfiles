@@ -139,6 +139,7 @@ alias zshcustom="edit_cwd ~/.config/zsh"
 alias kittyconfig="edit_cwd ~/.config/kitty/kitty.conf"
 alias nvimconfig="edit_cwd ~/.config/nvim"
 alias binedit="edit_cwd ~/.local/bin"
+alias gitconfig="edit_cwd ~/.gitconfig"
 
 # Rename aliases
 alias bat="batcat"
