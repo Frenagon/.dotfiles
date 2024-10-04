@@ -107,6 +107,7 @@ alias dosw="dog switch"
 alias doswm="dog switch master"
 alias doswh="dog switch hyprland"
 alias doswmo="dog switch macOS"
+alias doswwsl="dog switch WSL"
 doaa() {
 	if dog add "$@"; then
 		dog status
