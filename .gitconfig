@@ -1,3 +1,5 @@
 [user]
 	email = frenagon@gmail.com
 	name = Francisco Aceves
+[alias]
+	undo = reset --soft HEAD^
