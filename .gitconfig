@@ -3,5 +3,7 @@
 	name = Francisco Aceves
 [init]
 	defaultBranch = main
+[push]
+	autoSetupRemote = true
 [alias]
 	undo = reset --soft HEAD^
