@@ -142,3 +142,14 @@ alias binedit="edit_cwd ~/.local/bin"
 
 # Rename aliases
 alias bat="batcat"
+
+# Common uses
+cgrep() {
+  if [ -z "$1" ]; then
+    echo "Provide a source to read"
+  elif [ -z "$2" ]; then
+    echo "Provide a string to search"
+  else
+    cat "$1" | grep "$2"
+  fi
+}
