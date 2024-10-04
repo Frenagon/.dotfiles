@@ -7,3 +7,7 @@
 	autoSetupRemote = true
 [alias]
 	undo = reset --soft HEAD^
+[core]
+	pager = delta
+[delta]
+	line-numbers = true
