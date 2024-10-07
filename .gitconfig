@@ -1,6 +1,6 @@
 [user]
-	email = frenagon@gmail.com
 	name = Francisco Aceves
+	email = frenagon@gmail.com
 [init]
 	defaultBranch = main
 [push]
@@ -11,12 +11,12 @@
 	pager = delta
 	editor = code --wait
 [merge]
-  tool = vscode
+	tool = vscode
 [mergetool "vscode"]
 	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 [diff]
-  tool = vscode
+	tool = vscode
 [difftool "vscode"]
-  cmd = code --wait --diff $LOCAL $REMOTE
+	cmd = code --wait --diff $LOCAL $REMOTE
 [delta]
 	line-numbers = true
