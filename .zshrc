@@ -150,7 +150,6 @@ alias binedit="edit_cwd ~/.local/bin"
 alias gitconfig="edit_cwd ~/.gitconfig"
 
 # Rename aliases
-alias bat="batcat"
 alias c="code"
 alias codeh="code ."
 alias ch="code ."
