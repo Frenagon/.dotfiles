@@ -47,6 +47,13 @@ export NVM_DIR="$HOME/.nvm"
 
 # User configuration
 
+# pnpm
+export PNPM_HOME="/home/frenagon/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
 	export EDITOR='vim'
