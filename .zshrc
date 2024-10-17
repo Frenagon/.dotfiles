@@ -4,9 +4,6 @@ PATH="$HOME/.local/bin:$PATH"
 # Path to the oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set the name of the theme.
-export ZSH_THEME="spaceship"
-
 # Folder for the custom configuration.
 export ZSH_CUSTOM=$HOME/.config/zsh
 
@@ -164,3 +161,6 @@ cgrep() {
     cat "$1" | grep "$2"
   fi
 }
+
+# Starship pompt
+eval "$(starship init zsh)"
